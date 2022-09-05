@@ -13,6 +13,8 @@ $
 
 ## notes
 
+stop the thing with <kbd>ctrl+c</kbd>
+
 `script -F` to flush output after each write
 
 `sudo` because it calls tcpdump
