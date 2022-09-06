@@ -1,6 +1,6 @@
 # noise-generator
 
-inspired by [bert's googerteller](https://github.com/berthubert/googerteller/) this is a macos implementation that should be functional on modern mac computers without external dependencies or the need for a compiler.
+inspired by [bert's googerteller](https://github.com/berthubert/googerteller/) this is a macos implementation that does not require a compiler and does not require external dependencies to run.
 
 it simply makes some noise whenever there is network activity to google.
 
