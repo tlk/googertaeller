@@ -1,10 +1,11 @@
 #!/bin/bash
 
 tty_bell() {
+    # this is too slow
     printf \\x07
 }
 
-phone() {
+phone_beep() {
     # thanks to https://osxdaily.com/2016/03/31/play-dtmf-tones-mac/
     afplay /System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/telephony/dtmf-pound.caf &
 }
@@ -13,7 +14,7 @@ last_line="none"
 
 while read -r line;
 do
-    # limit to 10 dings per second
+    # limit to 10 beeps per second
     if [ "$last_line" = "${line:0:10}" ];
     then
         continue;
@@ -22,7 +23,7 @@ do
     last_line="${line:0:10}"
 
     #tty_bell
-    phone
+    phone_beep
     printf .
 done
 
