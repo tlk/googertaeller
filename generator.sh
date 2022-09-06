@@ -1,4 +1,4 @@
 #!/bin/bash
 
-tcpdump -nql 2>&1
+tcpdump -nql -F goog-filter.cfg 2>&1
 
