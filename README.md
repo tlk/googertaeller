@@ -24,4 +24,4 @@ it creates (and removes!) a fifo-file called "my_fifo" to take advantage of the 
 
 [`script -F`](https://www.unix.com/man-page/mojave/1/SCRIPT/) is used in the run.sh file to flush output after each write from tcpdump.
 
-please let me know if you are aware of a less convoluted way to do this without using a compiler.
+please let me know if you have any suggestions for less complicated (and compiler-free) ways to deal with buffer issues :-)
