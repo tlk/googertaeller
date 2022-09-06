@@ -1,7 +1,8 @@
 # noise-generator
 
-make some noise whenever there is network activity
+make some noise whenever there is network activity to google.
 
+inspired by [bert's googerteller](https://github.com/berthubert/googerteller/) this is a macos implementation that should be functional on modern mac computers:
 
 ```
 $ ./run.sh
