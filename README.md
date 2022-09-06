@@ -23,3 +23,5 @@ stop the thing with <kbd>ctrl+c</kbd>
 [`script -F`](https://www.unix.com/man-page/mojave/1/SCRIPT/) is used in the run.sh file to flush output after each write from tcpdump.
 
 it creates (and removes!) a fifo-file called "my_fifo" to take advantage of the `script -F` flushing mechanism.
+
+please let me know if you are aware of a less convoluted way to do this without using a compiler.
