@@ -18,7 +18,7 @@ it is asking for password because tcpdump needs to run as super user.
 stop the thing with <kbd>ctrl+c</kbd>
 
 
-## notes
+## technical notes
 
 it creates (and removes!) a fifo-file called "my_fifo" to take advantage of the `script -F` flushing mechanism.
 
