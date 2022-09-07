@@ -7,7 +7,7 @@ tty_bell() {
 
 phone_beep() {
     # thanks to https://osxdaily.com/2016/03/31/play-dtmf-tones-mac/
-    afplay /System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/telephony/dtmf-pound.caf &
+    afplay --volume 0.05 /System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/telephony/dtmf-pound.caf &
 }
 
 last_line="none"
