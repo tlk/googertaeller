@@ -20,9 +20,15 @@ do
         continue;
     fi
 
+    #
+    # example:
+    #   "19:35:07.2"
+    #   "19:35:07.9"
+    #   "19:35:08.0"
+    #
+
     last_line="${line:0:10}"
 
-    #tty_bell
     phone_beep
     printf .
 done
