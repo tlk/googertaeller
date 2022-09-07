@@ -2,7 +2,7 @@
 
 inspired by [bert's googerteller](https://github.com/berthubert/googerteller/) this is a macos implementation that does not require a compiler and does not require external dependencies to be installed.
 
-it simply makes a beep whenever there is network activity to google.
+it simply makes a beep whenever there is network activity with google.
 
 
 ```
