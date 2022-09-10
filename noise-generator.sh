@@ -13,43 +13,37 @@ then
     exit 1
 fi
 
-beeper() {
+debounce() {
+    # limit to 10 beeps per second
+
     last_line="none"
 
     while read -r line;
     do
-        # limit to 10 beeps per second
         if [ "$last_line" = "${line:0:10}" ];
         then
             continue;
         fi
 
-        #
-        # example:
-        #   "19:35:07.2"
-        #   "19:35:07.9"
-        #   "19:35:08.0"
-        #
+        echo .
 
         last_line="${line:0:10}"
-
-        phone_beep
-        printf "[32;1m.[0m"
     done
-
-    echo
 }
 
-tty_bell() {
-    # this is too slow
-    printf \\x07
+beep() {
+    while read -r dot;
+    do
+        # visual output
+        printf "[32;1m.[0m"
+
+        # the bell is too slow
+        # printf \\x07
+
+        # this works, thanks to https://osxdaily.com/2016/03/31/play-dtmf-tones-mac/
+        afplay --volume 0.05 /System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/telephony/dtmf-pound.caf &
+    done
 }
 
-phone_beep() {
-    # thanks to https://osxdaily.com/2016/03/31/play-dtmf-tones-mac/
-    afplay --volume 0.05 /System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/telephony/dtmf-pound.caf &
-}
-
-
-sudo tcpdump --immediate-mode -nql -F "$filter" 2>&1 | beeper
+sudo tcpdump --immediate-mode -nql -F "$filter" 2>&1 | debounce | beep
 
