@@ -13,23 +13,6 @@ then
     exit 1
 fi
 
-if [ "$2" = "tcpdump" ];
-then
-    tcpdump -nql -F "$filter" 2>&1
-    exit
-fi
-
-
-main() {
-    rm -f my_fifo
-    mkfifo my_fifo
-
-    (beeper < my_fifo) &
-    (sudo script -q -F my_fifo ./noise-generator.sh "$filter" tcpdump) > /dev/null
-
-    rm -f my_fifo
-}
-
 beeper() {
     last_line="none"
 
@@ -68,5 +51,5 @@ phone_beep() {
 }
 
 
-main
+sudo tcpdump --immediate-mode -nql -F "$filter" 2>&1 | beeper
 
