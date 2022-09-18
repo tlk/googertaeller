@@ -35,9 +35,8 @@ debounce() {
             continue;
         fi
 
-        echo .
-
         last_line="${line:0:10}"
+        echo "$last_line"
     done
 }
 
