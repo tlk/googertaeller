@@ -32,7 +32,7 @@ debounce() {
 }
 
 beep() {
-    while read -r dot;
+    while read -r;
     do
         # visual output
         printf "[32;1m.[0m"
