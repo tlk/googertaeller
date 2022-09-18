@@ -6,7 +6,7 @@ it beeps when there is network traffic to google.
 
 
 ```
-$ ./tæller.sh google.cfg
+$ ./tæller.sh google.txt
 Password:
 .........................................................................................
 $

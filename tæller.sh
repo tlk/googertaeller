@@ -1,18 +1,27 @@
 #!/bin/zsh
 # shellcheck shell=bash
 
-filter="google.cfg"
 
+# define default filter file
+filter="google.txt"
+
+# allow user to specify an alternative filter file
+#   ./tæller.sh meta.txt
 if [ -n "$1" ];
 then
     filter="$1"
 fi
 
-if [ ! -f "$filter" ];
-then
-    echo "'$filter' filter file does not exist"
-    exit 1
-fi
+
+sniff() {
+    if [ ! -f "$filter" ];
+    then
+        echo "'$filter' filter file does not exist"
+        exit 1
+    fi
+
+    sudo tcpdump --immediate-mode -nql -F "$filter" 2>&1
+}
 
 debounce() {
     # limit to 10 beeps per second
@@ -46,5 +55,5 @@ beep() {
     done
 }
 
-sudo tcpdump --immediate-mode -nql -F "$filter" 2>&1 | debounce | beep
+sniff | debounce | beep
 
