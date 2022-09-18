@@ -16,7 +16,7 @@ fi
 sniff() {
     if [ ! -f "$filter" ];
     then
-        echo "'$filter' filter file does not exist"
+        echo "'$filter' filter file does not exist" >&2
         exit 1
     fi
 
